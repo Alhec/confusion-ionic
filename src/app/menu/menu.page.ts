@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { Dish } from '../shared/dish';
+import { DishService } from '../providers/dish.service';
+import { RouterModule, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuPage implements OnInit {
 
-  constructor() { }
+  dishes: Dish[];
+  dishErrMess: string;
+  nav = document.querySelector('ion-nav');
+  JSON:any;
+  constructor(private dishservice: DishService,
+    @Inject('BaseURL') private BaseURL) {
+      this.JSON = JSON;
+    }
+
 
   ngOnInit() {
+    this.dishservice.getDishes()
+    .subscribe((dishes) => {this.dishes = dishes},
+    errmess => this.dishErrMess = <any>errmess);
   }
 
 }

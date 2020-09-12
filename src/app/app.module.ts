@@ -15,7 +15,7 @@ import { HomePage } from './home/home.page'
 import { AboutPage } from './about/about.page';
 import { ContactPage } from './contact/contact.page';
 import { MenuPage } from './menu/menu.page';
-
+import { DishdetailPage } from './dishdetail/dishdetail.page';
 import { baseURL } from './shared/baseurl';
 
 @NgModule({
@@ -24,13 +24,15 @@ import { baseURL } from './shared/baseurl';
     HomePage,
     AboutPage,
     ContactPage,
-    MenuPage
+    MenuPage,
+    DishdetailPage
   ],
   entryComponents: [
     HomePage,
     AboutPage,
     ContactPage,
-    MenuPage
+    MenuPage,
+    DishdetailPage
   ],
   imports: [
     BrowserModule,
