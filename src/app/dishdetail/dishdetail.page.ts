@@ -12,7 +12,7 @@ import { switchMap } from 'rxjs/operators';
 })
 export class DishdetailPage implements OnInit {
 
-  dish: any;
+  dish: Dish;
   errMess: string;
   avgstars: string;
   numcomments: number;

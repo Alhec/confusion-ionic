@@ -10,7 +10,7 @@
 <ion-content>
   <ion-nav>
     <div *ngIf="dishes">
-      <ion-card *ngFor="let dish of dishes"  [routerLink]="['/dishdetail', dish.id]"    routerDirection="forward">
+      <ion-card *ngFor="let dish of dishes"  [routerLink]="['/dishdetail', dish.id]" routerDirection="forward">
         <img src="{{BaseURL + dish.image}}"/>
         <ion-card-title class="card-title">{{dish.name}}</ion-card-title>
         <ion-card-subtitle class="card-subtitle">{{dish.description}}</ion-card-subtitle>
