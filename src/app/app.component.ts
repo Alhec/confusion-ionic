@@ -37,6 +37,11 @@ export class AppComponent implements OnInit {
       url: '/contact',
       icon: 'person-circle'
     },
+    {
+      title: 'Favorites',
+      url: '/favorites',
+      icon: 'heart'
+    }
   ];
   public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
 

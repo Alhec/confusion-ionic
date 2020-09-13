@@ -17,6 +17,7 @@ import { ContactPage } from './contact/contact.page';
 import { MenuPage } from './menu/menu.page';
 import { DishdetailPage } from './dishdetail/dishdetail.page';
 import { baseURL } from './shared/baseurl';
+import { FavoritesPage } from './favorites/favorites.page';
 
 @NgModule({
   declarations: [
@@ -25,14 +26,16 @@ import { baseURL } from './shared/baseurl';
     AboutPage,
     ContactPage,
     MenuPage,
-    DishdetailPage
+    DishdetailPage,
+    FavoritesPage
   ],
   entryComponents: [
     HomePage,
     AboutPage,
     ContactPage,
     MenuPage,
-    DishdetailPage
+    DishdetailPage,
+    FavoritesPage
   ],
   imports: [
     BrowserModule,

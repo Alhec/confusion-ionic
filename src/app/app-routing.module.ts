@@ -5,6 +5,8 @@ import { AboutPage } from './about/about.page';
 import { MenuPage } from './menu/menu.page';
 import { ContactPage } from './contact/contact.page';
 import { DishdetailPage } from './dishdetail/dishdetail.page';
+import { from } from 'rxjs';
+import { FavoritesPage } from './favorites/favorites.page';
 const routes: Routes = [
   {
     path: 'home',
@@ -25,10 +27,17 @@ const routes: Routes = [
   { path: 'dishdetail/:id',
     component: DishdetailPage
   },
+  { path: 'favorites',
+    component: FavoritesPage
+  },
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },
+  {
+    path: 'favorites',
+    loadChildren: () => import('./favorites/favorites.module').then( m => m.FavoritesPageModule)
   },
   // {
   //   path: 'dishdetail',
