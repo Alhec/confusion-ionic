@@ -8,6 +8,9 @@ import { HomePage } from './home/home.page';
 import { AboutPage } from './about/about.page';
 import { ContactPage } from './contact/contact.page';
 import { MenuPage } from './menu/menu.page';
+import { async } from '@angular/core/testing';
+import { ReservationPage } from './reservation/reservation.page';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
@@ -43,12 +46,12 @@ export class AppComponent implements OnInit {
       icon: 'heart'
     }
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private modalController: ModalController
   ) {
     this.initializeApp();
   }
@@ -65,5 +68,13 @@ export class AppComponent implements OnInit {
     if (path !== undefined) {
       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
     }
+  }
+
+  async openReserve() {
+    console.log(1);
+    const modal = await this.modalController.create({
+      component: ReservationPage,
+    });
+    return await modal.present();
   }
 }

@@ -5,8 +5,8 @@ import { AboutPage } from './about/about.page';
 import { MenuPage } from './menu/menu.page';
 import { ContactPage } from './contact/contact.page';
 import { DishdetailPage } from './dishdetail/dishdetail.page';
-import { from } from 'rxjs';
 import { FavoritesPage } from './favorites/favorites.page';
+import { ReservationPage } from './reservation/reservation.page';
 const routes: Routes = [
   {
     path: 'home',
@@ -30,15 +30,22 @@ const routes: Routes = [
   { path: 'favorites',
     component: FavoritesPage
   },
+  { path: 'reservation',
+    component: ReservationPage
+  },
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
   },
-  {
-    path: 'favorites',
-    loadChildren: () => import('./favorites/favorites.module').then( m => m.FavoritesPageModule)
-  },
+  // {
+  //   path: 'favorites',
+  //   loadChildren: () => import('./favorites/favorites.module').then( m => m.FavoritesPageModule)
+  // },
+  // {
+  //   path: 'reservation',
+  //   loadChildren: () => import('./reservation/reservation.module').then( m => m.ReservationPageModule)
+  // },
   // {
   //   path: 'dishdetail',
   //   loadChildren: () => import('./dishdetail/dishdetail.module').then( m => m.DishdetailPageModule)
