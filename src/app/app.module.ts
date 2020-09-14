@@ -19,6 +19,7 @@ import { DishdetailPage } from './dishdetail/dishdetail.page';
 import { baseURL } from './shared/baseurl';
 import { FavoritesPage } from './favorites/favorites.page';
 import { ReservationPage } from './reservation/reservation.page';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ReservationPage } from './reservation/reservation.page';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     StatusBar,
