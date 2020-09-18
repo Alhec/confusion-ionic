@@ -38,6 +38,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'comment',
+    loadChildren: () => import('./comment/comment.module').then( m => m.CommentPageModule)
+  },
   // {
   //   path: 'favorites',
   //   loadChildren: () => import('./favorites/favorites.module').then( m => m.FavoritesPageModule)

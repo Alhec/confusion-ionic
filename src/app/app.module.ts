@@ -20,6 +20,7 @@ import { baseURL } from './shared/baseurl';
 import { FavoritesPage } from './favorites/favorites.page';
 import { ReservationPage } from './reservation/reservation.page';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CommentPage } from './comment/comment.page';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MenuPage,
     DishdetailPage,
     FavoritesPage,
-    ReservationPage
+    ReservationPage,
+    CommentPage
   ],
   entryComponents: [
     HomePage,
@@ -39,7 +41,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MenuPage,
     DishdetailPage,
     FavoritesPage,
-    ReservationPage
+    ReservationPage,
+    CommentPage
   ],
   imports: [
     BrowserModule,

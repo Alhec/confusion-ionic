@@ -6,7 +6,8 @@ import { FavoriteService } from '../providers/favorite.service';
 import { Params, ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { from } from 'rxjs';
-import { ToastController } from '@ionic/angular';
+import { ActionSheetController, ModalController, ToastController } from '@ionic/angular';
+import { CommentPage } from '../comment/comment.page';
 
 @Component({
   selector: 'app-dishdetail',
@@ -25,7 +26,9 @@ export class DishdetailPage implements OnInit {
     private route: ActivatedRoute,
     @Inject('BaseURL') private BaseURL,
     private favoriteservice: FavoriteService,
-    private toastCtrl: ToastController) {
+    private toastCtrl: ToastController,
+    private actionSheetCtrl: ActionSheetController,
+    private modalController: ModalController) {
     }
 
   ngOnInit() {
@@ -49,5 +52,43 @@ export class DishdetailPage implements OnInit {
       position: 'middle',
       duration: 3000});
       toast.present();
+    }
+
+    async presentActionSheet() {
+      const actionSheet = await this.actionSheetCtrl.create({
+        buttons: [{
+          text: 'Add to Favorites',
+          handler: () => {
+            this.addToFavorites();
+          }
+        }, {
+          text: 'Add a Comment',
+          handler: () => {
+            this.openComment();
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }]
+      });
+      await actionSheet.present();
+    }
+
+    async openComment() {
+      const modal = await this.modalController.create({
+        component: CommentPage,
+      });
+      modal.onDidDismiss().then((comment) => {
+        if (comment) {
+          let commentAux: Comment = comment.data;
+          this.dish.comments.push(commentAux);
+        }
+      })
+      .catch(e => console.log(e));
+      return await modal.present();
     }
 }

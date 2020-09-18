@@ -71,7 +71,6 @@ export class AppComponent implements OnInit {
   }
 
   async openReserve() {
-    console.log(1);
     const modal = await this.modalController.create({
       component: ReservationPage,
     });
