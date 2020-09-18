@@ -10,11 +10,17 @@
 <ion-content>
   <ion-nav>
     <div *ngIf="dishes">
-      <ion-card *ngFor="let dish of dishes"  [routerLink]="['/dishdetail', dish.id]" (pan)="addToFavorites(dish)" routerDirection="forward">
-        <img src="{{BaseURL + dish.image}}"/>
-        <ion-card-title class="card-title">{{dish.name}}</ion-card-title>
-        <ion-card-subtitle class="card-subtitle">{{dish.description}}</ion-card-subtitle>
-      </ion-card>
+      <ion-grid>
+        <ion-row class=" ion-align-items-center">
+          <ion-col  size="12" sizeLg="4" *ngFor="let dish of dishes" >
+            <ion-card [routerLink]="['/dishdetail', dish.id]" (pan)="addToFavorites(dish)" routerDirection="forward">
+              <img src="{{BaseURL + dish.image}}"/>
+              <ion-card-title class="card-title">{{dish.name}}</ion-card-title>
+              <ion-card-subtitle class="card-subtitle">{{dish.description}}</ion-card-subtitle>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
       </div>
       <div [hidden]="dishes || errMess">
         <ion-spinner></ion-spinner>
