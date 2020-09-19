@@ -21,6 +21,8 @@ import { FavoritesPage } from './favorites/favorites.page';
 import { ReservationPage } from './reservation/reservation.page';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommentPage } from './comment/comment.page';
+import { LoginPage } from './login/login.page';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { CommentPage } from './comment/comment.page';
     DishdetailPage,
     FavoritesPage,
     ReservationPage,
-    CommentPage
+    CommentPage,
+    LoginPage
   ],
   entryComponents: [
     HomePage,
@@ -42,14 +45,16 @@ import { CommentPage } from './comment/comment.page';
     DishdetailPage,
     FavoritesPage,
     ReservationPage,
-    CommentPage
+    CommentPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    IonicStorageModule.forRoot()
   ],
   providers: [
     StatusBar,

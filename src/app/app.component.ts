@@ -11,6 +11,7 @@ import { MenuPage } from './menu/menu.page';
 import { async } from '@angular/core/testing';
 import { ReservationPage } from './reservation/reservation.page';
 import { ModalController } from '@ionic/angular';
+import { LoginPage } from './login/login.page';
 
 @Component({
   selector: 'app-root',
@@ -73,6 +74,13 @@ export class AppComponent implements OnInit {
   async openReserve() {
     const modal = await this.modalController.create({
       component: ReservationPage,
+    });
+    return await modal.present();
+  }
+
+  async openLogin() {
+    const modal = await this.modalController.create({
+      component: LoginPage,
     });
     return await modal.present();
   }

@@ -7,6 +7,7 @@ import { ContactPage } from './contact/contact.page';
 import { DishdetailPage } from './dishdetail/dishdetail.page';
 import { FavoritesPage } from './favorites/favorites.page';
 import { ReservationPage } from './reservation/reservation.page';
+import { LoginPage } from './login/login.page';
 const routes: Routes = [
   {
     path: 'home',
@@ -33,6 +34,9 @@ const routes: Routes = [
   { path: 'reservation',
     component: ReservationPage
   },
+  { path: 'login',
+    component: LoginPage
+  },
   {
     path: '',
     redirectTo: 'home',
@@ -42,6 +46,10 @@ const routes: Routes = [
     path: 'comment',
     loadChildren: () => import('./comment/comment.module').then( m => m.CommentPageModule)
   },
+  // {
+  //   path: 'login',
+  //   loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  // },
   // {
   //   path: 'favorites',
   //   loadChildren: () => import('./favorites/favorites.module').then( m => m.FavoritesPageModule)
