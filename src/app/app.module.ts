@@ -25,6 +25,7 @@ import { LoginPage } from './login/login.page';
 import { IonicStorageModule } from '@ionic/storage';
 import { HTTP } from '@ionic-native/http';
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import { EmailComposer } from '@ionic-native/email-composer';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {provide: 'BaseURL', useValue: baseURL},
-    LocalNotifications
+    LocalNotifications,
+    EmailComposer
   ],
   bootstrap: [AppComponent]
 })
