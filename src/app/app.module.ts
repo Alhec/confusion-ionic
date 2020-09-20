@@ -23,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommentPage } from './comment/comment.page';
 import { LoginPage } from './login/login.page';
 import { IonicStorageModule } from '@ionic/storage';
+import { HTTP } from '@ionic-native/http';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { IonicStorageModule } from '@ionic/storage';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {provide: 'BaseURL', useValue: baseURL},
+
   ],
   bootstrap: [AppComponent]
 })

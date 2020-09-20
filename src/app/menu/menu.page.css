@@ -1,0 +1,22 @@
+app-menu ion-card {
+  position: relative;
+  text-align: center;
+}
+
+app-menu .card-title {
+  position: absolute;
+  top: 36%;
+  font-size: 2.0em;
+  width: 100%;
+  font-weight: bold;
+  color: #fff;
+}
+
+app-menu .card-subtitle {
+  font-size: 1.0em;
+  position: absolute;
+  top: 52%;
+  width: 100%;
+  color: #fff;
+}
+/*# sourceMappingURL=menu.page.css.map */

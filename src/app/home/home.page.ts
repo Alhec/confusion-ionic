@@ -5,7 +5,7 @@ import { Promotion } from '../shared/promotion';
 import { PromotionService } from '../providers/promotion.service';
 import { Leader } from '../shared/leader';
 import { LeaderService } from '../providers/leader.service';
-
+import { HTTP } from '@ionic-native/http/ngx';
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
@@ -23,11 +23,13 @@ export class HomePage implements OnInit {
   constructor(private dishservice: DishService,
     private promotionservice: PromotionService,
     private leaderService: LeaderService,
-    @Inject('BaseURL') private BaseURL) { }
+    @Inject('BaseURL') private BaseURL,
+    ) { }
 
   ngOnInit(): void {
+    console.log('home');
     this.dishservice.getFeaturedDish()
-    .subscribe((dish) => {this.dish = dish},
+    .subscribe((dish) => {console.log('home2');this.dish = dish;},
     errmess => this.dishErrMess = <any>errmess);
     this.promotionservice.getFeaturedPromotion()
     .subscribe((promotion) => this.promotion = promotion,
@@ -36,5 +38,5 @@ export class HomePage implements OnInit {
     .subscribe((leader) => this.leader = leader,
     errmess => this.leaderErrMess = <any>errmess);
   }
-
+  
 }
