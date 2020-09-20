@@ -26,7 +26,10 @@ import { IonicStorageModule } from '@ionic/storage';
 import { HTTP } from '@ionic-native/http';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { EmailComposer } from '@ionic-native/email-composer';
-
+import { SocialSharing } from '@ionic-native/social-sharing';
+import { Camera } from '@ionic-native/camera'
+import { from } from 'rxjs';
+import { RegisterPage } from './register/register.page';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +41,8 @@ import { EmailComposer } from '@ionic-native/email-composer';
     FavoritesPage,
     ReservationPage,
     CommentPage,
-    LoginPage
+    LoginPage,
+    RegisterPage
   ],
   entryComponents: [
     HomePage,
@@ -49,7 +53,8 @@ import { EmailComposer } from '@ionic-native/email-composer';
     FavoritesPage,
     ReservationPage,
     CommentPage,
-    LoginPage
+    LoginPage,
+    RegisterPage
   ],
   imports: [
     BrowserModule,
@@ -65,7 +70,9 @@ import { EmailComposer } from '@ionic-native/email-composer';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {provide: 'BaseURL', useValue: baseURL},
     LocalNotifications,
-    EmailComposer
+    EmailComposer,
+    SocialSharing,
+    Camera
   ],
   bootstrap: [AppComponent]
 })

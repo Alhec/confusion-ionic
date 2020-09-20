@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalController, Platform } from '@ionic/angular';
 import { User } from '../shared/user';
 import { Storage } from '@ionic/storage';
+import { RegisterPage } from '../register/register.page';
 
 @Component({
   selector: 'app-login',
@@ -58,4 +59,13 @@ export class LoginPage implements OnInit {
       this.storage.remove('user');
     await this.modalController.dismiss();
   }
+
+  async openRegister() {
+    const modal = await this.modalController.create({
+      component: RegisterPage,
+    });
+    await modal.present();
+    await this.modalController.dismiss();
+  }
+  
 }

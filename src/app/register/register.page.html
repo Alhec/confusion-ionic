@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons *ngIf="platform.is('ios')" slot="start">
+      <ion-button ion-button (click)="dismiss()">
+        <span ion-text color="primary"  >Cancel</span>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons *ngIf="platform.is('android')" slot="end">
+      <ion-button ion-button (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button ion-button (click)="dismiss()">
+        <span ion-text color="primary"  >Cancel</span>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header color="primary">Your Picture</ion-card-header>
+    <img src="{{image}}" />
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-button small (click)="getPicture()">Take Picture</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">First Name</ion-label>
+      <ion-input type="text" formControlName="firstname"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Last Name</ion-label>
+      <ion-input type="text" formControlName="lastname"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Username</ion-label>
+      <ion-input type="text" formControlName="username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Tel. Number</ion-label>
+      <ion-input type="tel" formControlName="telnum"  pattern="[0-9]*"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" formControlName="email" email></ion-input>
+    </ion-item>
+    <ion-button type="submit" [disabled]="!registerForm.valid">Register</ion-button>
+  </form>
+</ion-content>
