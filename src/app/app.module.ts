@@ -24,6 +24,7 @@ import { CommentPage } from './comment/comment.page';
 import { LoginPage } from './login/login.page';
 import { IonicStorageModule } from '@ionic/storage';
 import { HTTP } from '@ionic-native/http';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,7 @@ import { HTTP } from '@ionic-native/http';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {provide: 'BaseURL', useValue: baseURL},
-
+    LocalNotifications
   ],
   bootstrap: [AppComponent]
 })
