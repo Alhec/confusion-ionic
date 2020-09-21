@@ -30,6 +30,7 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 import { Camera } from '@ionic-native/camera'
 import { from } from 'rxjs';
 import { RegisterPage } from './register/register.page';
+import { Network } from '@ionic-native/network';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +73,8 @@ import { RegisterPage } from './register/register.page';
     LocalNotifications,
     EmailComposer,
     SocialSharing,
-    Camera
+    Camera,
+    Network
   ],
   bootstrap: [AppComponent]
 })

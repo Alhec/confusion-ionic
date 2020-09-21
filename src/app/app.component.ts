@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import { LoadingController, Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
@@ -12,6 +12,7 @@ import { async } from '@angular/core/testing';
 import { ReservationPage } from './reservation/reservation.page';
 import { ModalController } from '@ionic/angular';
 import { LoginPage } from './login/login.page';
+import { Network } from '@ionic-native/network/ngx';
 
 @Component({
   selector: 'app-root',
@@ -47,12 +48,15 @@ export class AppComponent implements OnInit {
       icon: 'heart'
     }
   ];
+  loading: any = null;
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private modalController: ModalController
+    private modalController: ModalController,
+    private network: Network,
+    private loadingCtrl: LoadingController
   ) {
     this.initializeApp();
   }
@@ -61,6 +65,31 @@ export class AppComponent implements OnInit {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+      this.network.onDisconnect().subscribe(() => {
+        if (!this.loading) {
+          this.loading = this.loadingCtrl.create({
+            message: 'Network Disconnected'
+          });
+          this.loading.present();
+        }
+      });
+
+      this.network.onConnect().subscribe(() => {
+
+        // We just got a connection but we need to wait briefly
+        // before we determine the connection type. Might need to wait.
+        // prior to doing any api requests as well.
+        setTimeout(() => {
+          if (this.network.type === 'wifi') {
+            console.log('we got a wifi connection, woohoo!');
+          }
+        }, 3000);
+        if (this.loading) {
+          this.loading.dismiss();
+          this.loading = null;
+        }
+      });
     });
   }
 
